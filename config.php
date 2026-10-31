@@ -4,8 +4,8 @@
  * Diese Datei wird nur eingebunden, direkt aufgerufen gibt sie nichts aus.
  */
 return [
-    // An diese Adresse gehen die Anfragen.
-    'empfaenger' => 'speckstueberl@aon.at',
+    // An diese Adresse gehen die Anfragen aus dem Kontaktformular.
+    'empfaenger' => 'schuster@indinger.email',
 
     // Absender der Mail. Sollte eine Adresse der eigenen Domain sein,
     // sonst landen die Mails bei vielen Anbietern im Spam.

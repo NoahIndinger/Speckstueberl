@@ -22,7 +22,7 @@ Lokal werden die Mails aus dem Formular **nicht verschickt**, sondern als `.eml`
 ## Kontaktformular
 
 - `kontakt.php` nimmt die Anfrage entgegen, prüft sie und schickt sie mit PHP `mail()` an die
-  Adresse aus `config.php` (derzeit `speckstueberl@aon.at`).
+  Adresse aus `config.php` (derzeit `schuster@indinger.email`).
 - Antworten-Knopf im Mailprogramm geht direkt an den Gast (Reply-To).
 - Spam-Schutz: unsichtbares Honeypot-Feld, Mindest-Ausfülldauer, max. 5 Anfragen pro Besucher in 10 Minuten.
 - Funktioniert auch ohne JavaScript.
