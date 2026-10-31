@@ -31,21 +31,18 @@ Lokal werden die Mails aus dem Formular **nicht verschickt**, sondern als `.eml`
 (z. B. `website@muehlviertler-speckstueberl.at`), sonst landen die Mails leicht im Spam.
 Die meisten österreichischen Webhoster (World4You, easyname, …) unterstützen `mail()` direkt.
 
-## Bilder austauschen
+## Bilder
 
-Alle Fotos liegen in `img/`. Einfach eine neue Datei **mit gleichem Namen** hineinkopieren, dann ist sie
-überall auf der Seite ausgetauscht. Empfehlung: JPG, lange Seite ca. 1600 px, unter 400 KB.
-
-| Datei | Wo auf der Seite |
+| Ordner | Inhalt |
 |---|---|
-| `eingang-weinlaub.jpg` | Startbild groß (Hero) |
-| `karreespeck.jpg` | Startbild klein, rund |
-| `gemischte-platte.jpg`, `hausbrot-speck.jpg`, `kaeseplatte.jpg` | „Unsere Schmankerl“-Collage |
-| `gemischte-platte.jpg`, `belegtes-brot.jpg`, `hausbrot-speck.jpg`, `fleischplatte.jpg`, `stube.jpg` | Speisekarte (je Reiter) |
-| `kaltes-buffet.jpg` | Hintergrund „Feste & Buffet“ |
-| `haus-frueher.jpg`, `fleischerei-schuster.jpg`, `haus-heute.jpg` | Geschichte |
-| `gastgeberin.jpg` | Geschichte + Team-Seite (Sabine) |
-| Liste `PICS` am Ende von `index.html` | Galerie „Bilder“ |
+| `img/website/` | Alle Fotos, die auf der Startseite verwendet werden (Auswahl aus dem Fotoshooting) |
+| `img/team/` | Fotos für die Team-Seite |
+| `img/alt/` | Die alten Fotos der früheren Website (werden nicht mehr verwendet) |
+| `img/icons/` | Favicon / App-Icons |
+
+Austauschen: neue Datei **mit gleichem Namen** in den Ordner kopieren. Empfehlung: JPG, lange Seite
+ca. 1400–1600 px, unter 400 KB. Die Namen sagen, wo das Bild erscheint (`startbild-eingang.jpg`,
+`karte-brot.jpg`, `buffet.jpg` …). Die Galerie „Bilder“ wird über die Liste `PICS` am Ende von `index.html` gesteuert.
 
 ## Team-Seite pflegen
 
