@@ -21,7 +21,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{background:var(--coal);color:var(--cream);font-family:var(--sans);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{display:block;max-width:100%}
+img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 .wrap{width:min(var(--wrap),100% - 32px);margin-inline:auto}
 .eyebrow{font-family:var(--sans);font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}

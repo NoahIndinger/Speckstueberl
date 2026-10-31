@@ -35,14 +35,20 @@ Die meisten österreichischen Webhoster (World4You, easyname, …) unterstützen
 
 | Ordner | Inhalt |
 |---|---|
-| `img/website/` | Alle Fotos, die auf der Startseite verwendet werden (Auswahl aus dem Fotoshooting) |
+| `img/website/` | Alle Fotos der Startseite (Auswahl aus dem Fotoshooting), im schnellen **WebP**-Format |
+| `img/website/klein/` | Kleine Vorschaubilder für die Galerie (das große Bild lädt erst beim Anklicken) |
 | `img/team/` | Fotos für die Team-Seite |
 | `img/alt/` | Die alten Fotos der früheren Website (werden nicht mehr verwendet) |
 | `img/icons/` | Favicon / App-Icons |
 
-Austauschen: neue Datei **mit gleichem Namen** in den Ordner kopieren. Empfehlung: JPG, lange Seite
-ca. 1400–1600 px, unter 400 KB. Die Namen sagen, wo das Bild erscheint (`startbild-eingang.jpg`,
-`karte-brot.jpg`, `buffet.jpg` …). Die Galerie „Bilder“ wird über die Liste `PICS` am Ende von `index.html` gesteuert.
+**Bild austauschen:** neue Datei **mit gleichem Namen** in den Ordner legen. Damit die Seite schnell
+bleibt, Fotos vorher verkleinern und als WebP speichern, z. B. kostenlos mit https://squoosh.app:
+- Startseite/Speisekarte: ca. 900–1300 px breit, Qualität ~70
+- Galerie: groß 1600 px in `img/website/`, klein 640 px in `img/website/klein/`
+- Team: ca. 800 px hoch
+
+Die Galerie wird über die Liste `PICS` am Ende von `index.html` gesteuert.
+`img/website/vorschau.jpg` ist das Bild, das WhatsApp/Facebook beim Teilen des Links anzeigt.
 
 ## Team-Seite pflegen
 
