@@ -45,6 +45,74 @@ function kopf(string $v): string
     return preg_match('/[^\x20-\x7e]/', $v) ? '=?UTF-8?B?' . base64_encode($v) . '?=' : $v;
 }
 
+/**
+ * Schickt eine Mail über einen SMTP-Server (z. B. das Postfach schuster@indinger.email).
+ * Gibt null zurück, wenn alles geklappt hat, sonst eine Fehlerbeschreibung fürs Server-Log.
+ */
+function smtp_senden(array $s, string $von, string $an, string $betreff, string $text, array $headers): ?string
+{
+    $port = (int) ($s['port'] ?? 587);
+    $verschl = strtolower((string) ($s['verschluesselung'] ?? 'tls'));
+    $ziel = ($verschl === 'ssl' ? 'ssl://' : 'tcp://') . $s['host'] . ':' . $port;
+    $ctx = stream_context_create(['ssl' => ['verify_peer' => true, 'verify_peer_name' => true, 'peer_name' => $s['host']]]);
+    $fp = @stream_socket_client($ziel, $errno, $errstr, 15, STREAM_CLIENT_CONNECT, $ctx);
+    if (!$fp) return "Verbindung zu $ziel fehlgeschlagen: $errstr ($errno)";
+    stream_set_timeout($fp, 15);
+
+    $lesen = function () use ($fp): string {
+        $antwort = '';
+        while (($zeile = fgets($fp, 1024)) !== false) {
+            $antwort .= $zeile;
+            if (strlen($zeile) < 4 || $zeile[3] !== '-') break; // letzte Zeile einer Antwort
+        }
+        return $antwort;
+    };
+    $befehl = function (?string $cmd, array $ok, ?string $name = null) use ($fp, $lesen): ?string {
+        if ($cmd !== null) fwrite($fp, $cmd . "\r\n");
+        $a = $lesen();
+        $code = (int) substr($a, 0, 3);
+        if (!in_array($code, $ok, true)) {
+            $zeigen = $name ?? $cmd ?? 'Begrüßung'; // Zugangsdaten nie ins Log schreiben
+            return "$zeigen → " . trim($a);
+        }
+        return null;
+    };
+
+    $hostname = preg_replace('/[^a-z0-9.-]/i', '', $_SERVER['SERVER_NAME'] ?? 'localhost') ?: 'localhost';
+    $schritte = function () use ($befehl, $fp, $verschl, $hostname, $s, $von, $an, $betreff, $text, $headers): ?string {
+        if ($f = $befehl(null, [220])) return $f;
+        if ($f = $befehl("EHLO $hostname", [250])) return $f;
+        if ($verschl === 'tls') {
+            if ($f = $befehl('STARTTLS', [220])) return $f;
+            if (!stream_socket_enable_crypto($fp, true, STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT | STREAM_CRYPTO_METHOD_TLSv1_3_CLIENT)) {
+                return 'TLS konnte nicht gestartet werden';
+            }
+            if ($f = $befehl("EHLO $hostname", [250])) return $f;
+        }
+        if ($f = $befehl('AUTH LOGIN', [334])) return $f;
+        if ($f = $befehl(base64_encode((string) $s['benutzer']), [334], 'Benutzername')) return 'Benutzername abgelehnt: ' . $f;
+        if ($f = $befehl(base64_encode((string) $s['passwort']), [235], 'Passwort')) return 'Anmeldung fehlgeschlagen (Passwort?): ' . $f;
+        if ($f = $befehl("MAIL FROM:<$von>", [250])) return $f;
+        if ($f = $befehl("RCPT TO:<$an>", [250, 251])) return $f;
+        if ($f = $befehl('DATA', [354])) return $f;
+
+        $kopf = "Date: " . date('r') . "\r\n"
+              . "To: <$an>\r\n"
+              . "Subject: $betreff\r\n"
+              . 'Message-ID: <' . bin2hex(random_bytes(12)) . '@' . substr(strrchr($von, '@'), 1) . ">\r\n";
+        foreach ($headers as $k => $v) $kopf .= "$k: $v\r\n";
+        // Zeilen, die mit einem Punkt beginnen, verdoppeln (SMTP-Regel)
+        $inhalt = preg_replace('/^\./m', '..', $text);
+        fwrite($fp, $kopf . "\r\n" . $inhalt . "\r\n.\r\n");
+        if ($f = $befehl(null, [250])) return $f;
+        $befehl('QUIT', [221]);
+        return null;
+    };
+    $ergebnis = $schritte();
+    fclose($fp);
+    return $ergebnis;
+}
+
 /* ---------- Eingaben einlesen ---------- */
 function feld(string $name, int $max = 200): string
 {
@@ -152,16 +220,19 @@ if ($email !== '') {
     $headers['Reply-To'] = '=?UTF-8?B?' . base64_encode($name) . '?=' . ' <' . $email . '>';
 }
 
-$gesendet = mail(
-    $config['empfaenger'],
-    kopf($betreff),
-    $text,
-    $headers,
-    '-f' . $config['absender']
-);
+$smtp = $config['smtp'] ?? [];
+if (!empty($smtp['host']) && ($smtp['passwort'] ?? '') !== '') {
+    // Versand direkt über das Postfach (zuverlässig, landet nicht im Spam)
+    $fehler = smtp_senden($smtp, $config['absender'], $config['empfaenger'], kopf($betreff), $text, $headers);
+    $gesendet = $fehler === null;
+    if (!$gesendet) error_log('kontakt.php: SMTP-Versand fehlgeschlagen: ' . $fehler);
+} else {
+    // Fallback: mail() des Webhosters
+    $gesendet = mail($config['empfaenger'], kopf($betreff), $text, $headers);
+    if (!$gesendet) error_log('kontakt.php: mail() fehlgeschlagen (SMTP in config.local.php eintragen)');
+}
 
 if (!$gesendet) {
-    error_log('kontakt.php: mail() fehlgeschlagen');
     antwort(false, 'Die Anfrage konnte leider nicht gesendet werden. Bitte rufen Sie uns an: 07216 / 61 05.', $isAjax, 500);
 }
 

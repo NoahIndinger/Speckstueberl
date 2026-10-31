@@ -4,7 +4,7 @@
  * Sperrt interne Dateien und lässt alles andere normal ausliefern.
  */
 $pfad = rawurldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/');
-if (preg_match('#^/(tools|mails)(/|$)|^/config\.php$|/\.#', $pfad)) {
+if (preg_match('#^/(tools|mails)(/|$)|^/config(\.local|\.local\.example)?\.php$|/\.#', $pfad)) {
     http_response_code(403);
     echo 'Kein Zugriff.';
     return true;

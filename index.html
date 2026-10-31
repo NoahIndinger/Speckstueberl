@@ -574,6 +574,10 @@ addEventListener('keydown', e => {
     btn.disabled = true; btn.textContent = 'Wird gesendet …';
     try {
       const r = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'X-Requested-With': 'fetch' } });
+      if (!(r.headers.get('content-type') || '').includes('json')) {
+        // kontakt.php wurde nicht als PHP ausgeführt (z. B. Vorschau ohne PHP-Server)
+        throw new Error('kein PHP');
+      }
       const j = await r.json();
       say(j.ok, j.message);
       if (j.ok) { form.reset(); document.getElementById('formT').value = Date.now(); }
