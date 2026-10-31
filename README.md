@@ -21,15 +21,26 @@ Lokal werden die Mails aus dem Formular **nicht verschickt**, sondern als `.eml`
 
 ## Kontaktformular
 
-- `kontakt.php` nimmt die Anfrage entgegen, prüft sie und schickt sie mit PHP `mail()` an die
-  Adresse aus `config.php` (derzeit `schuster@indinger.email`).
+- `kontakt.php` nimmt die Anfrage entgegen, prüft sie und schickt sie per E-Mail – **kein mailto**.
+- Empfänger und Absender: `schuster@indinger.email` (einstellbar in `config.php`).
 - Antworten-Knopf im Mailprogramm geht direkt an den Gast (Reply-To).
 - Spam-Schutz: unsichtbares Honeypot-Feld, Mindest-Ausfülldauer, max. 5 Anfragen pro Besucher in 10 Minuten.
-- Funktioniert auch ohne JavaScript.
+- **Funktioniert nur auf einem Webserver mit PHP** (Webhoster). In der Claude-Vorschau läuft kein PHP.
 
-**Beim Hosting beachten:** In `config.php` den `absender` auf eine Adresse der eigenen Domain setzen
-(z. B. `website@muehlviertler-speckstueberl.at`), sonst landen die Mails leicht im Spam.
-Die meisten österreichischen Webhoster (World4You, easyname, …) unterstützen `mail()` direkt.
+### Versand einrichten (wichtig!)
+
+Weil die Absenderadresse nicht zur Domain der Website gehört, sollte die Mail **über das Postfach
+`schuster@indinger.email` selbst** verschickt werden (SMTP). Sonst lehnen viele Mailserver sie ab
+oder sie landet im Spam.
+
+1. `config.local.example.php` auf dem Webserver nach **`config.local.php`** kopieren.
+2. Dort SMTP-Server, Port und **Passwort** des Postfachs eintragen. Die Daten stehen beim
+   Mail-Anbieter von indinger.email unter „Postausgangsserver (SMTP)“.
+3. Fertig – Formular einmal testen.
+
+`config.local.php` wird nicht auf GitHub hochgeladen (steht in `.gitignore`) und ist über den
+Browser gesperrt. Ohne `config.local.php` versucht die Seite den Versand über `mail()` des Webhosters.
+Klappt der Versand nicht, steht der Grund im Fehler-Log des Webhosters (Zeile „kontakt.php: …“).
 
 ## Bilder
 
