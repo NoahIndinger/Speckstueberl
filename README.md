@@ -10,6 +10,9 @@ Voraussetzung: **PHP 8** (wegen des Kontaktformulars).
 | macOS   | `brew install php`                       | `./start.sh` im Terminal        |
 | Linux   | `sudo apt install php-cli`               | `./start.sh` im Terminal        |
 
+Ohne PHP startet automatisch ein einfacher Server (Python), dann funktioniert nur das Formular nicht.
+Noch einfacher: `index.html` doppelklicken.
+
 Danach im Browser: **http://localhost:8000** (Team-Seite: http://localhost:8000/team.html).
 Anderer Port: `./start.sh 8080` bzw. `start.bat 8080`.
 

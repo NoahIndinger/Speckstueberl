@@ -7,10 +7,18 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 PORT="${1:-8000}"
 
 if ! command -v php >/dev/null 2>&1; then
-  echo "PHP ist nicht installiert."
-  echo "  macOS:          brew install php"
-  echo "  Ubuntu/Debian:  sudo apt install php-cli php-mbstring"
-  exit 1
+  # Ohne PHP: Seite trotzdem anzeigen (nur das Kontaktformular sendet dann nicht)
+  PY="$(command -v python3 || command -v python || true)"
+  if [ -z "$PY" ]; then
+    echo "Weder PHP noch Python gefunden. Einfach index.html doppelklicken, um die Seite anzusehen."
+    exit 1
+  fi
+  echo ""
+  echo "  Speckstüberl läuft auf:  http://localhost:$PORT   (ohne PHP: Formular sendet nicht)"
+  echo "  Beenden mit Strg+C"
+  echo ""
+  ( sleep 1; command -v open >/dev/null && open "http://localhost:$PORT" || command -v xdg-open >/dev/null && xdg-open "http://localhost:$PORT" ) >/dev/null 2>&1 &
+  cd "$DIR" && exec "$PY" -m http.server "$PORT" --bind 127.0.0.1
 fi
 PHP="$(command -v php)"
 
