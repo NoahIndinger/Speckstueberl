@@ -21,26 +21,14 @@ Lokal werden die Mails aus dem Formular **nicht verschickt**, sondern als `.eml`
 
 ## Kontaktformular
 
-- `kontakt.php` nimmt die Anfrage entgegen, prüft sie und schickt sie per E-Mail – **kein mailto**.
-- Empfänger und Absender: `schuster@indinger.email` (einstellbar in `config.php`).
-- Antworten-Knopf im Mailprogramm geht direkt an den Gast (Reply-To).
-- Spam-Schutz: unsichtbares Honeypot-Feld, Mindest-Ausfülldauer, max. 5 Anfragen pro Besucher in 10 Minuten.
-- **Funktioniert nur auf einem Webserver mit PHP** (Webhoster). In der Claude-Vorschau läuft kein PHP.
+Ganz einfach: `kontakt.php` schickt die Angaben aus dem Formular mit der PHP-Funktion `mail()`
+des Webhosters an **schuster@indinger.email** (auch als Absender). Kein Passwort, keine Zusatzdateien.
+Adressen ändern: oben in `kontakt.php`.
 
-### Versand einrichten (wichtig!)
-
-Weil die Absenderadresse nicht zur Domain der Website gehört, sollte die Mail **über das Postfach
-`schuster@indinger.email` selbst** verschickt werden (SMTP). Sonst lehnen viele Mailserver sie ab
-oder sie landet im Spam.
-
-1. `config.local.example.php` auf dem Webserver nach **`config.local.php`** kopieren.
-2. Dort SMTP-Server, Port und **Passwort** des Postfachs eintragen. Die Daten stehen beim
-   Mail-Anbieter von indinger.email unter „Postausgangsserver (SMTP)“.
-3. Fertig – Formular einmal testen.
-
-`config.local.php` wird nicht auf GitHub hochgeladen (steht in `.gitignore`) und ist über den
-Browser gesperrt. Ohne `config.local.php` versucht die Seite den Versand über `mail()` des Webhosters.
-Klappt der Versand nicht, steht der Grund im Fehler-Log des Webhosters (Zeile „kontakt.php: …“).
+- „Antworten“ im Mailprogramm geht direkt an den Gast (wenn er eine E-Mail angegeben hat).
+- Unsichtbarer Spam-Schutz (Honeypot-Feld).
+- Funktioniert nur auf einem Webserver mit PHP (Webhoster). In der Claude-Vorschau läuft kein PHP;
+  lokal mit `start.sh`/`start.bat` landen die Mails im Ordner `mails/`.
 
 ## Bilder
 
@@ -71,8 +59,8 @@ Die Service- und Küchen-Karten sind noch **Platzhalter** („Vorname Nachname�
 ```
 index.html          Startseite
 team.html           Unser Team
-kontakt.php         Formular → E-Mail
-config.php          Empfänger, Absender, Spam-Limit
+kontakt.php         Formular → E-Mail an schuster@indinger.email
+                    (Empfänger/Absender stehen oben in kontakt.php)
 css/style.css       Gestaltung (für alle Seiten)
 js/common.js        Menü, Header, Dialoge (für alle Seiten)
 favicon.ico/.svg    Favicon, dazu img/icons/ und site.webmanifest

@@ -3,7 +3,7 @@ Options -Indexes
 AddDefaultCharset UTF-8
 
 # Interne Dateien sperren
-<FilesMatch "^(config\.php|config\.local\.php|config\.local\.example\.php|README\.md|start\.sh|start\.bat|\.gitignore)$">
+<FilesMatch "^(README\.md|start\.sh|start\.bat|\.gitignore)$">
   Require all denied
 </FilesMatch>
 RedirectMatch 403 ^/(tools|mails)(/|$)
