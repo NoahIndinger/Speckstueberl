@@ -1,0 +1,25 @@
+# Für Apache-Hosting (z. B. World4You, easyname, …)
+Options -Indexes
+AddDefaultCharset UTF-8
+
+# Interne Dateien sperren
+<FilesMatch "^(config\.php|README\.md|start\.sh|start\.bat|\.gitignore)$">
+  Require all denied
+</FilesMatch>
+RedirectMatch 403 ^/(tools|mails)(/|$)
+
+# /team -> team.html
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^team/?$ team.html [L]
+</IfModule>
+
+# Caching für Bilder, CSS & Icons
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType image/x-icon "access plus 30 days"
+  ExpiresByType text/css "access plus 7 days"
+</IfModule>
