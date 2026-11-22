@@ -16,8 +16,8 @@
 <link rel="preload" as="image" href="img/team/familie.webp" fetchpriority="high">
 <link rel="preload" href="fonts/fraunces-normal-300-700-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/alegreya-sans-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/fonts.css?v=2026-11-22c">
-<link rel="stylesheet" href="css/style.css?v=2026-11-22c">
+<link rel="stylesheet" href="css/fonts.css?v=2026-11-22d">
+<link rel="stylesheet" href="css/style.css?v=2026-11-22d">
 </head>
 <body>
 
@@ -71,7 +71,7 @@
       Jede Person ist ein <article class="member">…</article>.
       - Foto: Bild in den Ordner img/team/ legen (am besten als .webp, ca. 800 px hoch – siehe README) und bei <img src="…"> eintragen.
         Hochformat ist ideal (z. B. 800 × 1000 Pixel).
-      - Noch kein Foto? Statt <img …> einfach <div class="ph">XY</div> mit den Initialen verwenden.
+      - Noch kein Foto? Statt <img …> den Platzhalter <div class="ph ph-person">…</div> (Silhouette) einer anderen Karte kopieren.
       - Person entfernen: den ganzen <article>-Block löschen.
       - Neue Person: einen <article>-Block kopieren und anpassen.
     -->
@@ -122,14 +122,14 @@
         </div>
       </article>
       <article class="member reveal">
-        <figure><div class="ph" aria-hidden="true">?</div></figure>
+        <figure><div class="ph ph-person" role="img" aria-label="Noch kein Foto"><svg viewBox="0 0 200 250" aria-hidden="true"><circle cx="100" cy="104" r="44"/><path d="M18 250c0-58 37-96 82-96s82 38 82 96z"/></svg><span>Foto folgt</span></div></figure>
         <div class="who">
           <h3>Vorname Nachname</h3>
           <p class="role">Service</p>
         </div>
       </article>
       <article class="member reveal">
-        <figure><div class="ph" aria-hidden="true">?</div></figure>
+        <figure><div class="ph ph-person" role="img" aria-label="Noch kein Foto"><svg viewBox="0 0 200 250" aria-hidden="true"><circle cx="100" cy="104" r="44"/><path d="M18 250c0-58 37-96 82-96s82 38 82 96z"/></svg><span>Foto folgt</span></div></figure>
         <div class="who">
           <h3>Vorname Nachname</h3>
           <p class="role">Service</p>
@@ -196,6 +196,6 @@
   <form method="dialog" style="display:block;margin-top:20px"><button class="btn btn-gold">Schließen</button></form>
 </dialog>
 
-<script src="js/common.js?v=2026-11-22c"></script>
+<script src="js/common.js?v=2026-11-22d"></script>
 </body>
 </html>
