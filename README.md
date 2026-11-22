@@ -62,6 +62,7 @@ team.html           Unser Team
 kontakt.php         Formular → E-Mail an schuster@indinger.email
                     (Empfänger/Absender stehen oben in kontakt.php)
 css/style.css       Gestaltung (für alle Seiten)
+css/fonts.css       Schriften – lokal aus fonts/, keine Verbindung zu Google
 js/common.js        Menü, Header, Dialoge (für alle Seiten)
 favicon.ico/.svg    Favicon, dazu img/icons/ und site.webmanifest
 start.sh/start.bat  lokaler Server

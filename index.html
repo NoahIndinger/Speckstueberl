@@ -4,14 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mühlviertler Speckstüberl · Jausenstation in Piberschlag</title>
-<meta name="description" content="Mühlviertler Speckstüberl in Piberschlag bei Vorderweißenbach: prämierter Speck aus der hauseigenen Fleischhauerei Schuster, Brettljausen, hausgemachtes Brot, Frühstück jeden Mittwoch und Feiern bis 80 Personen.">
+<meta name="description" content="Mühlviertler Speckstüberl in Piberschlag bei Vorderweißenbach: prämierter Speck von der Fleischerei Schuster gleich nebenan, Brettljausen, hausgemachtes Brot, Frühstück jeden Mittwoch und Feiern bis 80 Personen.">
 <meta property="og:title" content="Mühlviertler Speckstüberl – Richtig guad Jausnen">
-<meta property="og:description" content="Jausenstation in Piberschlag 72, 4184 Vorderweißenbach. Speck, Brettljausen & Hausbrot aus eigener Herstellung.">
+<meta property="og:description" content="Jausenstation in Piberschlag 72, 4184 Vorderweißenbach. Speck von der Fleischerei nebenan, Brettljausen & selbst gebackenes Hausbrot.">
 <meta property="og:image" content="https://www.muehlviertler-speckstueberl.at/img/website/vorschau.jpg">
 <meta name="theme-color" content="#15110d">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Alegreya+Sans:wght@400;500;700&family=Parisienne&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -33,6 +30,9 @@
 <link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" as="image" href="img/website/startbild-eingang.webp" fetchpriority="high">
+<link rel="preload" href="fonts/fraunces-normal-300-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/alegreya-sans-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -67,9 +67,9 @@
 <section class="hero grain" id="start">
   <div class="wrap">
     <div>
-      <span class="status" id="status"><i></i><span id="statusText">Öffnungszeiten werden geladen …</span></span>
+      <p class="opening" id="status">Mi ab 8 · Do &amp; Fr ab 12 · Sa &amp; So ab 14 Uhr</p>
       <h1><span class="script">Richtig guad</span> Jausnen<br>im <em>Mühlviertel.</em></h1>
-      <p class="lead">Prämierter Speck aus der eigenen Fleischhauerei, frisch gebackenes Hausbrot und eine Stube, in der man gern sitzen bleibt. Seit Generationen in Piberschlag.</p>
+      <p class="lead">Prämierter Speck von der Fleischerei gleich nebenan, frisch gebackenes Hausbrot und eine Stube, in der man gern sitzen bleibt. Seit Generationen in Piberschlag.</p>
       <div class="actions">
         <a class="btn btn-gold" href="#karte">Zur Speisekarte</a>
         <a class="btn btn-ghost" href="#anfrage">Tisch oder Feier anfragen</a>
@@ -81,7 +81,7 @@
       <svg class="seal" viewBox="0 0 120 120" aria-hidden="true">
         <defs><path id="c" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
         <circle cx="60" cy="60" r="58" fill="#15110d" stroke="#c3a46a" stroke-opacity=".4"/>
-        <text><textPath href="#c">· AUS EIGENER HERSTELLUNG · PIBERSCHLAG 72 </textPath></text>
+        <text><textPath href="#c">· VOM FLEISCHER NEBENAN · PIBERSCHLAG 72 </textPath></text>
         <text x="60" y="68" text-anchor="middle" style="font-family:Parisienne,cursive;font-size:24px;letter-spacing:0;fill:#c3a46a">Speck</text>
       </svg>
     </div>
@@ -105,7 +105,7 @@
       <div class="txt reveal">
         <span class="eyebrow">Unsere Schmankerl</span>
         <h2>Ehrlich. Handwerklich.<br><em>Von uns gemacht.</em></h2>
-        <p>Unsere international prämierten Fleisch-, Speck- und Wurstspezialitäten kommen direkt aus der hauseigenen Fleischhauerei von Bernhard Schuster. Bei uns zählt nicht die Masse, sondern die Spezialität, wie sie nur hier im Mühlviertel entstehen kann.</p>
+        <p>Unsere international prämierten Fleisch-, Speck- und Wurstspezialitäten kommen direkt aus der Fleischerei Schuster gleich nebenan, dem Betrieb vom Bruder der Chefin. Bei uns zählt nicht die Masse, sondern die Spezialität, wie sie nur hier im Mühlviertel entstehen kann.</p>
         <p>Jedes Stück wird traditionell von Hand verarbeitet: authentisch, frisch und in höchster Qualität. Dazu gibt's Speck-, Käse- und Brettljausen, hausgemachte Sulz und unser knuspriges Hausbrot.</p>
         <p class="quote">„Hinter jedem Brettl steckt die Familie Schuster mit Leib und Seele.“</p>
       </div>
@@ -120,7 +120,7 @@
       <div class="pillar reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-2.5 5 2.5-1.5-7"/></svg>
         <h3>Prämierte Qualität</h3>
-        <p>Speck und Wurst mit internationalen Auszeichnungen, direkt aus dem eigenen Familienbetrieb.</p>
+        <p>Speck und Wurst mit internationalen Auszeichnungen, direkt aus der Fleischerei nebenan, einem Familienbetrieb.</p>
       </div>
       <div class="pillar reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11c0-4 3.5-6 8-6s8 2 8 6v1H4z"/><path d="M5 12v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>
@@ -359,7 +359,6 @@
         <h3 style="margin-top:40px">Termine</h3>
         <ul class="events" id="events">
           <li class="event"><div class="date"><b>Mi</b><small>8 Uhr</small></div><div><strong>Frühstück &amp; heißer Leberkäse</strong><p>Jeden Mittwoch ab 8 Uhr</p></div></li>
-          <li class="event" id="spar"><div class="date"><b>–</b><small>–</small></div><div><strong>Sparverein-Einzahlung</strong><p>Alle 14 Tage am Freitag ab 20 Uhr</p></div></li>
         </ul>
       </div>
 
@@ -449,7 +448,7 @@
 <dialog id="ds">
   <h3>Datenschutz</h3>
   <p>Diese Website setzt keine Tracking- oder Werbe-Cookies. Wenn Sie das Anfrageformular absenden, werden Ihre Angaben ausschließlich per E-Mail an uns übermittelt, um Ihre Anfrage zu beantworten. Auf der Website selbst werden keine Daten gespeichert. Für den Spam-Schutz wird beim Absenden kurzzeitig ein technisch notwendiges Sitzungs-Cookie gesetzt.</p>
-  <p>Schriftarten werden über Google Fonts geladen.</p>
+  <p>Alle Schriftarten und Bilder werden direkt von dieser Website geladen. Es werden keine Daten an Google oder andere Dritte übertragen. Erst wenn Sie auf „Route planen“ klicken, öffnet sich Google Maps.</p>
   <form method="dialog" style="display:block;margin-top:20px"><button class="btn btn-gold">Schließen</button></form>
 </dialog>
 
@@ -462,18 +461,14 @@ const OPEN = {0:14, 3:8, 4:12, 5:12, 6:14}; // Wochentag -> Öffnung ab (Uhr)
 const DAYS = ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
 (function status(){
   const now = new Date(), d = now.getDay(), h = now.getHours() + now.getMinutes()/60;
-  const el = document.getElementById('status'), txt = document.getElementById('statusText');
+  const el = document.getElementById('status');
   document.querySelector(`#hours li[data-days="${d}"]`)?.classList.add('today');
-  if (OPEN[d] !== undefined && h >= OPEN[d]) {
-    txt.textContent = 'Heute geöffnet · seit ' + OPEN[d] + ' Uhr';
-  } else if (OPEN[d] !== undefined) {
-    txt.textContent = 'Heute ab ' + OPEN[d] + ' Uhr geöffnet';
-    el.classList.add('closed');
+  if (OPEN[d] !== undefined) {
+    el.textContent = h >= OPEN[d] ? 'Heute für Sie da · seit ' + OPEN[d] + ' Uhr' : 'Heute für Sie da · ab ' + OPEN[d] + ' Uhr';
   } else {
     let n = 1; while (OPEN[(d + n) % 7] === undefined) n++;
     const nd = (d + n) % 7;
-    txt.textContent = 'Heute Ruhetag · wieder ' + (n === 1 ? 'morgen' : 'am ' + DAYS[nd]) + ' ab ' + OPEN[nd] + ' Uhr';
-    el.classList.add('closed');
+    el.textContent = 'Heute Ruhetag · ' + (n === 1 ? 'morgen' : DAYS[nd]) + ' ab ' + OPEN[nd] + ' Uhr wieder da';
   }
 })();
 
@@ -507,7 +502,7 @@ const PICS = [ // [Datei, Beschriftung, Breite, Höhe der Vorschau]
   ['haussulz.webp','Haussulz',427,640],
   ['eingang-lavendel.webp','Lavendel vorm Eingang',427,640],
   ['brettljausen.webp','Brettljausen',640,427],
-  ['speck.webp','Speck aus der eigenen Fleischhauerei',427,640],
+  ['speck.webp','Speck von der Fleischerei nebenan',427,640],
   ['wintergarten-sitzecke.webp','Sitzecke im Wintergarten',640,427],
   ['hausbrot-korb.webp','Frisches Hausbrot',640,427],
   ['schank.webp','Die Schank',640,427],
@@ -523,7 +518,7 @@ const PICS = [ // [Datei, Beschriftung, Breite, Höhe der Vorschau]
   ['jausentisch-gedeckt.webp','Reich gedeckter Tisch',640,427],
   ['gemuetliche-ecke.webp','Gemütliche Ecke im Wintergarten',640,427],
   ['eingang.webp','Eingang',640,427],
-  ['in-der-kueche.webp','In der Küche',640,427],
+  ['bauernjause.webp','Bauernjause am Holzbrettl',427,640],
 ];
 const gal = document.getElementById('gallery');
 gal.innerHTML = PICS.map(([f,c,w,h],i) =>
@@ -543,16 +538,6 @@ addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') show(cur + 1);
   if (e.key === 'ArrowLeft') show(cur - 1);
 });
-
-/* ---- Nächste Sparverein-Einzahlung (alle 14 Tage ab 9.1.2026) ---- */
-(function(){
-  const start = new Date(2026, 0, 9, 20), now = new Date();
-  let d = new Date(start);
-  while (d < now) d.setDate(d.getDate() + 14);
-  const el = document.querySelector('#spar .date');
-  el.innerHTML = `<b>${d.getDate()}.</b><small>${d.toLocaleDateString('de-AT',{month:'short'})}</small>`;
-  document.querySelector('#spar p').textContent = 'Nächster Termin: Freitag, ' + d.toLocaleDateString('de-AT',{day:'numeric',month:'long'}) + ', ab 20 Uhr';
-})();
 
 /* ---- Anfrageformular -> kontakt.php ---- */
 (function(){
