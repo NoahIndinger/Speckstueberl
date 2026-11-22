@@ -69,3 +69,9 @@ start.sh/start.bat  lokaler Server
 tools/              nur für den lokalen Server (Router + Mail-Fänger)
 .htaccess           Schutz interner Dateien auf Apache-Hosting
 ```
+
+## Nach Änderungen an CSS/JS
+
+In `index.html` und `team.html` hängt an `style.css`, `fonts.css` und `common.js` eine Versionsnummer
+(`?v=2026-11-22`). Nach einer Änderung an diesen Dateien das Datum erhöhen – dann laden alle Browser
+sofort die neue Version statt einer alten aus dem Zwischenspeicher.
