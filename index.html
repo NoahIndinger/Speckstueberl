@@ -67,7 +67,7 @@
 <section class="hero grain" id="start">
   <div class="wrap">
     <div>
-      <p class="opening" id="status">Mi ab 8 · Do &amp; Fr ab 12 · Sa &amp; So ab 14 Uhr</p>
+      <p class="opening" id="status"><span class="opening-tag" id="statusTag">Geöffnet</span><span class="opening-text" id="statusText">Mi ab 8 · Do &amp; Fr ab 12 · Sa &amp; So ab 14 Uhr</span></p>
       <h1><span class="script">Richtig guad</span> Jausnen<br>im <em>Mühlviertel.</em></h1>
       <p class="lead">Prämierter Speck von der Fleischerei gleich nebenan, frisch gebackenes Hausbrot und eine Stube, in der man gern sitzen bleibt. Seit Generationen in Piberschlag.</p>
       <div class="actions">
@@ -460,15 +460,18 @@ const IMG = 'img/website/';
 const OPEN = {0:14, 3:8, 4:12, 5:12, 6:14}; // Wochentag -> Öffnung ab (Uhr)
 const DAYS = ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
 (function status(){
+  // passt sich automatisch an Wochentag und Uhrzeit des Besuchers an
   const now = new Date(), d = now.getDay(), h = now.getHours() + now.getMinutes()/60;
-  const el = document.getElementById('status');
+  const el = document.getElementById('status'), tag = document.getElementById('statusTag'), txt = document.getElementById('statusText');
   document.querySelector(`#hours li[data-days="${d}"]`)?.classList.add('today');
+  tag.textContent = 'Heute';
   if (OPEN[d] !== undefined) {
-    el.textContent = h >= OPEN[d] ? 'Heute für Sie da · seit ' + OPEN[d] + ' Uhr' : 'Heute für Sie da · ab ' + OPEN[d] + ' Uhr';
+    txt.textContent = (h >= OPEN[d] ? 'geöffnet seit ' : 'geöffnet ab ') + OPEN[d] + ' Uhr';
   } else {
     let n = 1; while (OPEN[(d + n) % 7] === undefined) n++;
     const nd = (d + n) % 7;
-    el.textContent = 'Heute Ruhetag · ' + (n === 1 ? 'morgen' : DAYS[nd]) + ' ab ' + OPEN[nd] + ' Uhr wieder da';
+    txt.textContent = 'Ruhetag · ' + (n === 1 ? 'morgen' : DAYS[nd]) + ' ab ' + OPEN[nd] + ' Uhr wieder offen';
+    el.classList.add('rest');
   }
 })();
 
