@@ -45,12 +45,12 @@ h2 em,h1 em{font-style:italic;color:var(--gold)}
 .logo span{font-family:var(--serif);font-size:1.6rem;font-weight:500}
 .logo span b{color:var(--gold);font-weight:600;font-size:1.25em}
 .nav{display:flex;gap:28px;list-style:none}
-.nav a{text-decoration:none;font-weight:500;font-size:.98rem;opacity:.85;transition:.2s;position:relative}
+.nav a{white-space:nowrap;text-decoration:none;font-weight:500;font-size:.98rem;opacity:.85;transition:.2s;position:relative}
 .nav a:hover{opacity:1;color:var(--gold-soft)}
 .top-cta{display:flex;align-items:center;gap:14px}
 .burger{display:none;background:none;border:0;color:var(--cream);width:44px;height:44px;cursor:pointer}
 .burger svg{width:28px;height:28px}
-@media (max-width:980px){
+@media (max-width:1140px){
   .nav{position:fixed;inset:76px 0 auto;flex-direction:column;gap:0;background:var(--coal);border-bottom:1px solid var(--line-dark);padding:8px 16px 20px;transform:translateY(-120%);transition:.35s;z-index:-1}
   .nav.open{transform:none}
   .nav a{display:block;padding:14px 4px;border-bottom:1px solid var(--line-dark);font-size:1.15rem}
@@ -310,3 +310,12 @@ button:disabled{opacity:.6;cursor:wait}
 .team-photo{margin-top:clamp(40px,6vw,64px);border-radius:24px;overflow:hidden;aspect-ratio:16/8;box-shadow:0 30px 80px rgba(0,0,0,.45)}
 .team-photo img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
 @media (max-width:640px){.team-photo{aspect-ratio:4/3}}
+
+/* ---------- Kinderecke ---------- */
+.kinder-pic{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:1/1;box-shadow:0 24px 60px rgba(42,33,25,.18)}
+.kinder-pic img{width:100%;height:100%;object-fit:cover;object-position:92% 60%}
+.kinder-pic figcaption{position:absolute;left:14px;bottom:14px;background:rgba(21,17,13,.78);color:var(--cream);font-size:.85rem;padding:.3em .9em;border-radius:999px}
+.kinder-list{list-style:none;display:grid;gap:14px;margin-top:1.6rem}
+.kinder-list li{display:flex;gap:14px;align-items:center;color:var(--ink-soft);font-size:1.05rem}
+.kinder-list strong{color:var(--ink)}
+.kinder-list svg{width:40px;height:40px;padding:8px;border-radius:50%;background:rgba(154,123,64,.12);color:#9a7b40;flex:none}
