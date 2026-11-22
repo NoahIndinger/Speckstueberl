@@ -65,9 +65,9 @@ h2 em,h1 em{font-style:italic;color:var(--gold)}
 .hero h1 .script{display:block;font-size:.62em;margin-bottom:.1em}
 .hero p.lead{font-size:1.2rem;color:#d8ccbb;max-width:34ch;margin-bottom:2rem}
 .hero .actions{display:flex;flex-wrap:wrap;gap:12px}
-.status{display:inline-flex;align-items:center;gap:.6em;padding:.45em 1em .45em .8em;border:1px solid var(--line-dark);border-radius:999px;font-size:.92rem;background:rgba(255,255,255,.03)}
-.status i{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(127,163,107,.2)}
-.status.closed i{background:var(--red);box-shadow:0 0 0 4px rgba(194,106,79,.2)}
+/* Öffnungszeile über der Überschrift: im Stil der übrigen Rubriken */
+.opening{display:flex;align-items:center;gap:14px;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft)}
+.opening::before{content:"";width:40px;height:1px;background:var(--gold);flex:none}
 .hero-art{position:relative;aspect-ratio:4/5}
 .hero-art .main{position:absolute;inset:0 0 12% 14%;border-radius:200px 200px var(--r) var(--r);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
 .hero-art .main img{width:100%;height:100%;object-fit:cover}
