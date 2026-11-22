@@ -319,3 +319,7 @@ button:disabled{opacity:.6;cursor:wait}
 .kinder-list li{display:flex;gap:14px;align-items:center;color:var(--ink-soft);font-size:1.05rem}
 .kinder-list strong{color:var(--ink)}
 .kinder-list svg{width:40px;height:40px;padding:8px;border-radius:50%;background:rgba(154,123,64,.12);color:#9a7b40;flex:none}
+/* Platzhalter-Silhouette, solange kein Foto da ist */
+.member .ph-person{position:relative;display:block;overflow:hidden}
+.member .ph-person svg{position:absolute;left:50%;bottom:0;width:78%;transform:translateX(-50%);fill:var(--gold);opacity:.22}
+.member .ph-person span{position:absolute;left:50%;top:14px;transform:translateX(-50%);font-family:var(--sans);font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);opacity:.7;white-space:nowrap}
