@@ -1,0 +1,19 @@
+ROOMTOUR – Mühlviertler Speckstüberl
+====================================
+
+46 Fotos in Rundgang-Reihenfolge (Dateien sind durchnummeriert 01–46):
+
+01-aussen            Das Haus von außen (6)
+02-eingang           Weinlaub-Torbogen, Eingang, Blick hinein (8)
+03-schank            Die Schank / Bar (2)
+04-gastraum          Gastraum mit Holzbalken, Stube, Sitzecken (20)
+05-terrasse          Terrasse mit Ausblick (3)
+06-kinderecke        Kinderecke mit Touch-Bildschirm (1)
+07-details           Dekoration und Regale (4)
+08-kueche-backofen   Hausbrot im Ofen (2)
+
+- Originalfotos aus dem Fotoshooting (1600 px), keine verkleinerten Website-Bilder.
+- Ohne Personen und ohne reine Essensfotos – nur Räume und Haus.
+- Für eine KI-Roomtour einfach alle Bilder in dieser Reihenfolge hochladen.
+
+Dieser Ordner wird NICHT auf der Website angezeigt.

@@ -68,6 +68,8 @@ favicon.ico/.svg    Favicon, dazu img/icons/ und site.webmanifest
 start.sh/start.bat  lokaler Server
 tools/              nur für den lokalen Server (Router + Mail-Fänger)
 .htaccess           Schutz interner Dateien auf Apache-Hosting
+roomtour/           46 Raum-Fotos für eine KI-Roomtour (nicht auf der Website)
+_config.yml         sagt GitHub Pages, was nicht veröffentlicht wird
 ```
 
 ## Nach Änderungen an CSS/JS

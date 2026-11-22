@@ -6,7 +6,7 @@ AddDefaultCharset UTF-8
 <FilesMatch "^(README\.md|start\.sh|start\.bat|\.gitignore)$">
   Require all denied
 </FilesMatch>
-RedirectMatch 403 ^/(tools|mails)(/|$)
+RedirectMatch 403 ^/(tools|mails|roomtour)(/|$)
 
 # /team -> team.html
 <IfModule mod_rewrite.c>

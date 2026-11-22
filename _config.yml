@@ -1,0 +1,7 @@
+# GitHub Pages: diese Ordner/Dateien nicht auf der Website veröffentlichen
+exclude:
+  - roomtour
+  - README.md
+  - tools
+  - start.sh
+  - start.bat
